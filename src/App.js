@@ -1,11 +1,12 @@
 import React from 'react';
 import './App.css';
-import data, {allCategories, categoryCount, uniqueCategories} from './data';
+import data, {allCategories, categoryCount, namesAndCounts, uniqueCategories} from './data';
 
 console.log(data)
 console.log(allCategories)
 console.log(uniqueCategories)
 console.log(categoryCount)
+console.log(namesAndCounts)
 
 function App() {
   return (
