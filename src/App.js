@@ -12,7 +12,9 @@ console.log(namesAndCounts)
 function App() {
   return (
     <div className="App">
-      <h1>Hello World</h1>
+      <h1>React Product List</h1>
+      <p># of Products: { data.length }</p>
+      <p># of Category: { uniqueCategories.length }</p>
     </div>
   );
 }
