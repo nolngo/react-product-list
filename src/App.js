@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
-import data, {allCategories, categoryCount, namesAndCounts, uniqueCategories} from './data';
+// Challenge 7
+import data, { allCategories, categoryCount, namesAndCounts, uniqueCategories } from './data';
 
 console.log(data)
 console.log(allCategories)
