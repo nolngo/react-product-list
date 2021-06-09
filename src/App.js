@@ -15,14 +15,28 @@ function App() {
       <h1>React Product List</h1>
       <p># of Products: { data.length }</p>
       <p># of Category: { uniqueCategories.length }</p>
-      { namesAndCounts.map(obj => {
+      <div>
+        { namesAndCounts.map(obj => {
+            return (
+              <button>
+                { obj.name }
+                <span> { obj.count } </span>
+              </button>
+            )
+        }) }
+      </div>
+      <div>
+        { data.map(obj => {
           return (
-            <button>
-              { obj.name }
-              <span> { obj.count } </span>
-            </button>
+            <div>
+              <h2>{obj.name}</h2>
+              <p>{obj.description}</p>
+              <p>{obj.price}</p>
+              <small>Category: {obj.category} Rating: {obj.rating}</small>
+            </div>
           )
-      }) }
+        })}
+      </div>
     </div>
   );
 }
