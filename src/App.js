@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
+import Category from './Category';
 // Challenge 7
-import data, { allCategories, categoryCount, namesAndCounts, uniqueCategories } from './data';
+import data, { uniqueCategories } from './data';
+import AllProducts from './AllProducts';
 
 // console.log(data)
 // console.log(allCategories)
@@ -10,33 +12,33 @@ import data, { allCategories, categoryCount, namesAndCounts, uniqueCategories } 
 // console.log(namesAndCounts)
 
 function App() {
+  const [category, setCategory] = useState('All')
   return (
-    <div className="App">
+    <div className="ProductList">
       <h1>React Product List</h1>
       <p># of Products: { data.length }</p>
       <p># of Category: { uniqueCategories.length }</p>
-      <div>
-        { namesAndCounts.map(obj => {
-            return (
-              <button>
-                { obj.name }
-                <span> { obj.count } </span>
-              </button>
-            )
-        }) }
-      </div>
-      <div>
-        { data.map(obj => {
-          return (
-            <div>
-              <h2>{obj.name}</h2>
-              <p>{obj.description}</p>
-              <p>{obj.price}</p>
-              <small>Category: {obj.category} Rating: {obj.rating}</small>
-            </div>
-          )
-        })}
-      </div>
+      <Category
+        category={category}
+        onClick={(newCategory) => {
+          if (newCategory !== 'All') {
+            if (category.includes('All')) {
+              setCategory([newCategory])
+            } else if (category.includes(newCategory)) {
+              const index = category.indexOf(newCategory)
+              category.splice(index, 1)
+              setCategory([...category])
+            } else {
+              setCategory([...category, newCategory])
+            }
+          } else {
+            setCategory(['All'])
+          }
+        }}
+      />
+      <AllProducts
+        category = {category}
+      />
     </div>
   );
 }
